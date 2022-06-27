@@ -1,0 +1,19 @@
+version: 0.2
+phases: 
+  build:
+    commands:
+      - echo "Build block"
+      - ls
+      - echo "Running tests to check if "Hello" present in index.html file"
+      - grep "Hello" index.html
+  post_build:
+    commands:
+      - echo "Post build phase"
+artifacts:
+  files:
+    - scripts/install_dependencies.sh
+    - scripts/start_server.sh
+    - scripts/stop_server.sh
+    - index.html
+    - appspec.yml
+  discard-paths: yes
